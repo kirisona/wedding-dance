@@ -1,13 +1,26 @@
-@import '../../../nukleo/scss/icons';
-@import '../../../nukleo/scss/nucleo';
-
 // контейнер по умолчанию. Отступ между колонками
 $colGups: 5px;
 
 // контрольные точки, на которых наш макет будет перестраиваться (могут меняться зависимости от дизайна)
 $breakpoints: (
-  xs: 1440px
+  lt: 320px,
+  sm: 375px,
+  xs: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
 );
+
+// breakpoints
+$sm: 374px;
+$xs: 575px;
+$md: 767px;
+$lg: 991px;
+$xl: 1199px;
+$xxl: 1439px;
+
+//
 
 $columns: 12;
 
@@ -74,7 +87,6 @@ $col: $columns;
 }
 
 .container {
-  width: 100%;
   max-width: 1316px;
   margin: 0 auto;
   padding: 0 10px;
@@ -84,11 +96,15 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+}
+
 // layout
 
 .row {
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-right: -$colGups;
   margin-left: -$colGups;
@@ -126,26 +142,83 @@ html {
   padding-bottom: 48px;
 }
 
+.menu {
+  display: none;
+
+  @media screen and (max-width: $lg) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 14px;
+    width: 30px;
+    position: relative;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+
+    &__item {
+      width: 100%;
+      height: 2px;
+      border-radius: 4px;
+      background-color: #000;
+    }
+  }
+}
+
 .header {
   padding: 19px 0;
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  position: relative;
 
   &__list {
     display: flex;
     align-items: center;
     font-family: "Roboto", sans-serif;
+
+    @media screen and (max-width: $lg) {
+      display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 17px 24px;
+      }
+    }
   }
 
   &__item {
     font-size: 14px;
-    padding-right: 24px;
+
+    @media screen and (max-width: $lg) {
+      font-size: 18px;
+    }
+
+    & + & {
+      padding-left: 24px;
+
+      @media screen and (max-width: $lg) {
+        padding-left: 0;
+        padding-top: 24px;
+      }
+    }
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:last-of-type {
+      padding-left: 35px;
+
+      @media screen and (max-width: $lg) {
+        padding-left: 0;
+      }
     }
   }
 
@@ -156,6 +229,10 @@ html {
     font-weight: 600;
     font-size: 16px;
     padding: 5px 33px;
+
+    @media screen and (max-width: $lg) {
+     margin-bottom: 37px;
+    }
 
     &:hover {
       color: #ff699f;
@@ -169,6 +246,16 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: $lg) {
+    order: 1;
+  }
+
+  @media screen and (max-width: $lg) {
+    &__img {
+      margin: 0 -10px;
+    }
+  }
 
   &__title {
     font-size: 72px;
@@ -249,6 +336,9 @@ html {
     justify-content: space-between;
     font-size: 16px;
     flex-wrap: wrap;
+    @media screen and (max-width: $lg) {
+    }
+    align-items: center;
   }
 
   &__item {

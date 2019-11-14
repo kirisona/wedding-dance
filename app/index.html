@@ -15,6 +15,18 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"
+    />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -22,41 +34,50 @@
         <div class="logo">
           <a href="#">Wedding Dance</a>
         </div>
-        <div class="header__wrapper">
-          <nav>
-            <ul class="header__list">
-              <li class="header__item">
-                <a href="">Homework</a>
-              </li>
-              <li class="header__item">
-                <a href="#services">Services</a>
-              </li>
-              <li class="header__item">
-                <a href="">Our Coaches</a>
-              </li>
-              <li class="header__item">
-                <a href="">Testimonials</a>
-              </li>
-              <li class="header__item">
-                <a href="">FAQ</a>
-              </li>
-              <li class="header__item">
-                <a href="">Lesson Review</a>
-              </li>
-            </ul>
-          </nav>
-          <button class="header__btn">
-            Start
-          </button>
+
+        <div class="menu">
+          <span class="menu__item"></span>
+          <span class="menu__item"></span>
+          <span class="menu__item"></span>
         </div>
+
+        <nav>
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="">Homework</a>
+            </li>
+            <li class="header__item">
+              <a href="#services">Services</a>
+            </li>
+            <li class="header__item">
+              <a href="">Our Coaches</a>
+            </li>
+            <li class="header__item">
+              <a href="">Testimonials</a>
+            </li>
+            <li class="header__item">
+              <a href="">FAQ</a>
+            </li>
+            <li class="header__item">
+              <a href="">Lesson Review</a>
+            </li>
+            <li class="header__item">
+              <button class="header__btn">
+                Start
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
 
     <main>
       <section>
         <div class="container">
-          <div class="row">
-            <div class="col-4 hero">
+          <div class="row wrapper">
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-xs-12 col-sm-12 hero"
+            >
               <h1 class="hero__title">
                 Wedding Dance Lessons
               </h1>
@@ -72,7 +93,9 @@
 
               <a href="#services" class="hero__btn">Let’s start</a>
             </div>
-            <div class="col-8">
+            <div
+              class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-xs-12 col-sm-12"
+            >
               <div class="hero__img">
                 <img src="img/first-dance-i.png" alt="first wedding dance" />
               </div>
@@ -91,8 +114,10 @@
             of options for dance: not only for a bride and groom but for their
             friends and relatives
           </p>
-          <div class="services__wrapper">
-            <div class="services__item col-4">
+          <div class="services__wrapper slider">
+            <div
+              class="services__item col-xxl-4 col-xl-4 col-lg-4 col-md-11 col-xs-4 col-sm-4"
+            >
               <div class="services__img">
                 <img src="img/1196.png" alt="dance" />
               </div>
@@ -109,7 +134,9 @@
               </div>
             </div>
 
-            <div class="services__item col-4">
+            <div
+              class="services__item col-xxl-4 col-xl-4 col-lg-4 col-md-11 col-xs-4 col-sm-4"
+            >
               <div class="services__img">
                 <img src="img/image.png" alt="dance" />
               </div>
@@ -129,7 +156,9 @@
               </div>
             </div>
 
-            <div class="services__item col-4">
+            <div
+              class="services__item col-xxl-4 col-xl-4 col-lg-4 col-md-11 col-xs-4 col-sm-4"
+            >
               <div class="services__img">
                 <img src="img/1196.png" alt="guests" />
               </div>
@@ -160,7 +189,9 @@
           </p>
 
           <div class="offer__wrapper">
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/talented.svg" alt="people" />
               </div>
@@ -169,7 +200,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/door.svg" alt="door" />
               </div>
@@ -178,7 +211,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/cofee.svg" alt="coffee" />
               </div>
@@ -187,7 +222,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/figure.svg" alt="figure" />
               </div>
@@ -196,7 +233,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/star.svg" alt="star" />
               </div>
@@ -205,7 +244,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/friends.svg" alt="people" />
               </div>
@@ -214,7 +255,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/images.svg" alt="images" />
               </div>
@@ -223,7 +266,9 @@
               </p>
             </div>
 
-            <div class="offer__item col-3">
+            <div
+              class="offer__item col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-xs-6 col-sm-6 col-lt-6"
+            >
               <div class="offer__img">
                 <img src="img/smiles.svg" alt="smiles" />
               </div>
@@ -244,5 +289,9 @@
         <p>Copyright &#9400; 2019</p>
       </div>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
