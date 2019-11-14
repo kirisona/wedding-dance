@@ -1,3 +1,6 @@
+@import '../../../nukleo/scss/icons';
+@import '../../../nukleo/scss/nucleo';
+
 // контейнер по умолчанию. Отступ между колонками
 $colGups: 5px;
 
@@ -153,6 +156,12 @@ html {
     font-weight: 600;
     font-size: 16px;
     padding: 5px 33px;
+
+    &:hover {
+      color: #ff699f;
+      border-color: #ff699f;
+      cursor: pointer;
+    }
   }
 }
 
@@ -176,6 +185,7 @@ html {
     font-size: 16px;
     line-height: 1.5;
     padding-bottom: 45px;
+    padding-right: 68px;
   }
 
   &__btn {
@@ -187,6 +197,10 @@ html {
     border: 2px solid #ff699f;
     border-radius: 3px;
     width: fit-content;
+
+    &:hover {
+      color: #000;
+    }
   }
 }
 
