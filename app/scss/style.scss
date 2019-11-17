@@ -1,3 +1,6 @@
+@import './slick.scss';
+@import './slick-theme.scss';
+
 // контейнер по умолчанию. Отступ между колонками
 $colGups: 5px;
 
@@ -12,7 +15,8 @@ $breakpoints: (
   xxl: 1440px
 );
 
-// breakpoints
+// breakpoints variabels
+$lt: 320px;
 $sm: 374px;
 $xs: 575px;
 $md: 767px;
@@ -90,6 +94,10 @@ $col: $columns;
   max-width: 1316px;
   margin: 0 auto;
   padding: 0 10px;
+
+  @media screen and (max-width: $lg) {
+    padding: 0 16px;
+  }
 }
 
 a {
@@ -134,12 +142,24 @@ html {
   font-weight: bold;
   font-size: 36px;
   padding-bottom: 24px;
+
+  @media screen and (max-width: $xl) {
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: $lg) {
+    font-size: 24px;
+  }
 }
 
 .about {
   font-size: 16px;
   line-height: 1.5;
   padding-bottom: 48px;
+
+  @media screen and (max-width: $xl) {
+    font-size: 14px;
+  }
 }
 
 .menu {
@@ -171,6 +191,11 @@ html {
   padding: 19px 0;
   position: relative;
 
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__list {
     display: flex;
     align-items: center;
@@ -184,9 +209,9 @@ html {
         flex-direction: column;
         align-items: flex-start;
         position: absolute;
-        top: 56px;
+        top: 55px;
         left: 0;
-        right: 0;
+        right: -16px;
         background-color: white;
         padding: 17px 24px;
       }
@@ -231,7 +256,7 @@ html {
     padding: 5px 33px;
 
     @media screen and (max-width: $lg) {
-     margin-bottom: 37px;
+      margin-bottom: 37px;
     }
 
     &:hover {
@@ -251,9 +276,20 @@ html {
     order: 1;
   }
 
-  @media screen and (max-width: $lg) {
-    &__img {
-      margin: 0 -10px;
+  &__img {
+    img {
+      @media screen and (max-width: $lg) {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media screen and (max-width: $lg) {
+        height: auto;
+      }
+    }
+
+    @media screen and (max-width: $lg) {
+      margin: 0 -16px;
     }
   }
 
@@ -261,11 +297,32 @@ html {
     font-size: 72px;
     font-weight: 900;
     padding-bottom: 16px;
+
+    @media screen and (max-width: $xxl) {
+      font-size: 65px;
+    }
+
+    @media screen and (max-width: $xl) {
+      font-size: 55px;
+    }
+
+    @media screen and (max-width: $lg) {
+      font-size: 36px;
+      padding-bottom: 11px;
+      padding-top: 20px;
+      line-height: 1;
+      max-width: 267px;
+    }
   }
 
   &__city {
     font-size: 24px;
     padding-bottom: 40px;
+
+    @media screen and (max-width: $lg) {
+      font-size: 14px;
+      padding-bottom: 18px;
+    }
   }
 
   &__description {
@@ -273,6 +330,17 @@ html {
     line-height: 1.5;
     padding-bottom: 45px;
     padding-right: 68px;
+
+    @media screen and (max-width: $xl) {
+      font-size: 14px;
+      padding-bottom: 24px;
+      padding-right: 24px;
+    }
+
+    @media screen and (max-width: $lg) {
+      padding-right: 0;
+      max-width: 300px;
+    }
   }
 
   &__btn {
@@ -294,33 +362,66 @@ html {
 .services {
   padding: 100px 0;
 
+  @media screen and (max-width: $lg) {
+    padding: 56px 0;
+  }
+
+  .slick-slider .slick-track, .slick-slider .slick-list {
+    width: 100%;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;
+
+    .slick-list {
+      padding-bottom: 16px;
+    }
   }
 
   &__item {
     width: fit-content;
     box-shadow: 0px 4px 30px rgba(207, 207, 207, 0.25);
+    margin-right: 16px;
   }
 
   &__text {
     min-height: 219px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 25px;
+    padding: 40px 25px 0;
+
+    @media screen and (max-width: $lg) {
+      padding: 18px 16px 0;
+    }
   }
 
   &__name {
     font-size: 24px;
     padding-bottom: 24px;
     font-weight: 900;
+
+    @media screen and (max-width: $xl) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: $lg) {
+      font-size: 18px;
+      padding-bottom: 16px;
+    }
   }
 
   &__description {
     font-size: 16px;
     line-height: 1.5;
+
+    @media screen and (max-width: $xl) {
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: $lg) {
+      font-size: 13px;
+    }
   }
 
   &__description + &__description {
@@ -359,6 +460,10 @@ html {
     text-align: center;
     width: 57%;
     line-height: 1.5;
+
+    @media screen and (max-width: $xl) {
+      font-size: 12px;
+    }
   }
 }
 
