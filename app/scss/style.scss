@@ -1,5 +1,5 @@
-@import './slick.scss';
-@import './slick-theme.scss';
+@import "./slick.scss";
+@import "./slick-theme.scss";
 
 // контейнер по умолчанию. Отступ между колонками
 $colGups: 5px;
@@ -367,8 +367,24 @@ html {
     padding: 56px 0;
   }
 
-  .slick-slider .slick-track, .slick-slider .slick-list {
+  .slick-slider .slick-track,
+  .slick-slider .slick-list {
     width: 100%;
+  }
+
+  .slick-dots li button:before {
+    width: 6px;
+    height: 6px;
+    color: transparent;
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 50%;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: transparent;
+    background-color: #ff699f;
+    opacity: 0.75;
+    border-color: #ff699f;
   }
 
   &__wrapper {
@@ -379,9 +395,6 @@ html {
       padding-bottom: 16px;
 
       .slick-track {
-        // &:before, &:after {
-        //   content: none;
-        // }
         display: flex;
       }
     }
