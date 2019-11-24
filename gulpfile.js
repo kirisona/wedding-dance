@@ -1,112 +1,104 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var scss = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var notify = require('gulp-notify');
-var autoprefixer = require('gulp-autoprefixer');
-var imagemin = require('gulp-imagemin');
-var postcss = require('gulp-postcss');
-var pngquant = require('imagemin-pngquant');
-var browserSync = require('browser-sync').create();
+var gulp = require("gulp");
+var rename = require("gulp-rename");
+var scss = require("gulp-sass");
+var sourcemaps = require("gulp-sourcemaps");
+var autoprefixer = require("gulp-autoprefixer");
+var browserSync = require("browser-sync").create();
+var iconfont = require("gulp-iconfont");
+var iconfontCss = require("gulp-iconfont-css");
 
 function sync(cb) {
-    browserSync.init({
-        server: {
-            baseDir: "./build/"
-        },
-        port: 3000
-    });
+  browserSync.init({
+    server: {
+      baseDir: "./"
+    },
+    port: 3000
+  });
 
-    cb();
+  cb();
 }
 
-gulp.task('sync', sync);
+gulp.task("sync", sync);
 
 function compileStyle(cb) {
+  gulp
+    .src("./src/scss/*.scss")
+    .pipe(sourcemaps.init())
+    .pipe(
+      scss({
+        outputStyle: "compressed",
+        errLogToConsole: true
+      })
+    )
+    .pipe(
+      autoprefixer({
+        overrideBrowserslist: ["last 2 versions"],
+        cascade: false
+      })
+    )
+    .pipe(
+      rename({
+        suffix: ".min"
+      })
+    )
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("./src"))
+    .pipe(browserSync.stream());
 
-    gulp.src('./app/scss/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(scss({
-            outputStyle: 'compressed',
-            errLogToConsole: true
-        }))
-        .on('error', notify.onError(
-            {
-                message: "<%= error.message %>",
-                title: "Sass Error!"
-            }
-        ))
-        .pipe(autoprefixer({
-            overrideBrowserslist: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./build/css'))
-        .pipe(notify({ message: 'Styles task complete', sound: false, onLast: true }))
-        .pipe(browserSync.stream());
-
-    cb();
+  cb();
 }
-gulp.task('compileStyle', compileStyle);
+gulp.task("compileStyle", compileStyle);
 
-function buildHtml(cb) {
-    console.log('html');
-    gulp.src('app/**/*.html')
-        .pipe(gulp.dest('build/'))
-        .pipe(browserSync.reload({ stream: true }));
-    cb();
-}
+var fontName = "icons";
 
-function buildJs(cb) {
-    gulp.src('app/**/*.js')
-        .pipe(gulp.dest('build/'))
-        .pipe(browserSync.reload({ stream: true }));
-    cb();
-}
+// add svg icons to the folder "icons" and use 'iconfont' task for generating icon font
+function iconBuild(cb) {
+ 
+    gulp
+      .src("./src/icons/*.svg")
+      .pipe(
+        iconfontCss({
+          // где будет наш scss файл
+          targetPath: "../components/icons.scss",
+          // пути подлючения шрифтов в _icons.scss
+          fontPath: "./fonts/",
+          fontName: fontName
+        })
+      )
+      .pipe(
+        iconfont({
+          fontName: fontName,
+          formats: ["svg", "ttf", "eot", "woff", "woff2"],
+          normalize: true,
+          fontHeight: 1001
+        })
+      )
+      .pipe(gulp.dest("./fonts/"))
+      .pipe(browserSync.reload({ stream: true }));
 
-function imageBuild(cb) {
-    gulp.src('app/img/**/*.*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{ removeViewBox: false }],
-            use: [pngquant()],
-            interlaced: true
-        }));
-
-        gulp.src('app/img/**/**.*')
-        .pipe(gulp.dest('build/img'))
-        .pipe(browserSync.reload({ stream: true }));
-
-    cb();
+  cb();
 }
 
-gulp.task('imageBuild', imageBuild);
+gulp.task("iconBuild", iconBuild);
 
 function watchFiles(cb) {
-    gulp.watch('./**/*.scss', compileStyle);
-    gulp.watch('app/**/*.html', buildHtml);
-    gulp.watch('app/**/*.js', buildJs);
-    cb();
+  gulp.watch("./src/scss/*.scss", compileStyle);
+  gulp.watch("./src/icons/*.svg", iconBuild);
+  cb();
 }
 
 function browserReload(cb) {
-    browserSync.reload();
-    cb();
+  browserSync.reload();
+  cb();
 }
 
 function build(cb) {
-    buildHtml(cb);
-    buildJs(cb);
-    compileStyle(cb);
-    imageBuild(cb);
+  compileStyle(cb);
+  iconBuild(cb);
 
-    cb();
+  cb();
 }
 
-gulp.task('build', build);
+gulp.task("build", build);
 
-
-gulp.task('default', gulp.parallel(build, sync, watchFiles))
+gulp.task("default", gulp.parallel(build, sync, watchFiles));
