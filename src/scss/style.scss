@@ -170,13 +170,10 @@ a {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translate3d(0, -100%, 0);
   }
 
   to {
     opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -249,7 +246,7 @@ a {
     font-weight: 500;
     opacity: 0;
     animation-name: fadeInDown;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
@@ -268,7 +265,7 @@ a {
     opacity: 0;
     padding-right: 47px;
     animation-name: fadeInDown;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
@@ -298,7 +295,7 @@ a {
     opacity: 0;
     width: fit-content;
     animation-name: fadeInDown;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
