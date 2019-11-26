@@ -73,7 +73,7 @@ function iconBuild(cb) {
           fontHeight: 1001
         })
       )
-      .pipe(gulp.dest("./fonts/"))
+      .pipe(gulp.dest("./src/fonts/"))
       .pipe(browserSync.reload({ stream: true }));
 
   cb();
