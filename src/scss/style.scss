@@ -167,6 +167,19 @@ a {
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -178,7 +191,15 @@ a {
 
   &__img {
     display: flex;
+    position: relative;
+    opacity: 0;
     justify-content: flex-end;
+    animation-name: fadeInDown;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    
     img {
       @media screen and (max-width: $lg) {
         display: block;
@@ -194,8 +215,15 @@ a {
 
   &__title {
     font-size: 72px;
+    position: relative;
+    opacity: 0;
     font-weight: 700;
     padding-bottom: 16px;
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
 
     @media screen and (max-width: $xxl) {
       font-size: 65px;
@@ -215,9 +243,16 @@ a {
   }
 
   &__city {
+    position: relative;
     font-size: 24px;
     padding-bottom: 40px;
     font-weight: 500;
+    opacity: 0;
+    animation-name: fadeInDown;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
     @media screen and (max-width: $lg) {
       font-size: 14px;
@@ -226,10 +261,17 @@ a {
   }
 
   &__description {
+    position: relative;
     font-size: 16px;
     line-height: 1.5;
     padding-bottom: 45px;
+    opacity: 0;
     padding-right: 47px;
+    animation-name: fadeInDown;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
     @media screen and (max-width: $xl) {
       font-size: 14px;
@@ -243,6 +285,7 @@ a {
   }
 
   &__btn {
+    position: relative;
     font-weight: 600;
     font-size: 16px;
     color: #ff699f;
@@ -252,7 +295,13 @@ a {
     text-align: center;
     border: 2px solid #ff699f;
     border-radius: 3px;
+    opacity: 0;
     width: fit-content;
+    animation-name: fadeInDown;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
     &:hover {
       color: #000;
